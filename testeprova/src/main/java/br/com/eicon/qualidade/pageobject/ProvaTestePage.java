@@ -45,16 +45,31 @@ public class ProvaTestePage extends DriverPage {
 		// Capturando o Titulo da Pagina
 		tituloPagina = getDriver().getTitle();
 		System.out.println("Titulo da Página: " + tituloPagina);
-		
+
 		bp.aguardar(3000);
-		
-		//Efetuando comparação do titulo da pagina com o printado.
+
+		// Efetuando comparação do titulo da pagina com o printado.
 		Assert.assertEquals(tituloEsperado, tituloPagina);
-		
 
 		return this;
 
 	}
 
+	public void fecharNavegador() {
+
+		try {
+
+			driver.close();
+			driver.quit();
+
+			System.out.println("Navegador fechado com sucesso !!!");
+
+		} catch (Exception e) {
+			System.out.println(e + " - Navegador não foi fechado");
+		}finally {
+			System.out.println("Teste Finalizado.");
+		}
+
+	}
 
 }
